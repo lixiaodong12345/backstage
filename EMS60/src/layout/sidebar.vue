@@ -1,4 +1,13 @@
 <template>
+    <!-- 
+                                el-menu：导航菜单
+                                    default-active：设置默认激活的菜单选项
+                                    open事件：当菜单选项被展开时会执行
+                                    close事件：当菜单选项被关闭时会执行
+                                el-submenu：导航菜单的选项
+                                    template标签: 设置的是一级菜单
+                                
+                             -->
     <el-menu :router="true" :unique-opened="true" default-active="2" class="el-menu-vertical-demo mymenu">
         <el-submenu index="1">
             <!-- 一级菜单 -->
@@ -16,11 +25,11 @@
                 <i class="el-icon-location"></i>
                 <span>权限管理</span>
             </template>
-            <el-menu-item index="2-1">
+            <el-menu-item index="/roles">
                 <i class="el-icon-menu"></i>
                 <span>角色列表</span>
             </el-menu-item>
-            <el-menu-item index="2-2">
+            <el-menu-item index="/rights">
                 <i class="el-icon-menu"></i>
                 <span>权限列表</span>
             </el-menu-item>
@@ -73,6 +82,7 @@ export default {
 </script>
 
 <style>
+/* 侧边栏样式 */
 .mymenu {
     height: 100%
 }

@@ -4,17 +4,26 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Element from 'element-ui'
-import axios from 'axios'
+import MyBread from '@/layout/bread.vue'
+// import axios from 'axios'
+import myaxios from '@/assets/js/myaxios.js'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/css/index.css'
-// 注册统一请求路径
-axios.defaults.baseURL = 'http://localhost:8888/api/private/v1/'
-// 注册为中间件
-// 挂在到vue的原型中
-Vue.prototype.$http = axios
+
+// // 统一设置请求路径
+// axios.defaults.baseURL = 'http://localhost:8888/api/private/v1'
+// // 挂载到 vue 的原型中
+// Vue.prototype.$http = axios
+Vue.use(myaxios)
 Vue.use(Element)
+
+// 注册全局面包屑导航组件
+Vue.component(MyBread.name, MyBread)
+
 Vue.config.productionTip = false
+
 /* eslint-disable no-new */
+// 创建一个vue实例
 new Vue({
   el: '#app',
   router,
